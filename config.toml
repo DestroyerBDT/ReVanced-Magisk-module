@@ -1,12 +1,76 @@
-[YouTube]
-apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
-build-mode = "module"
-excluded-patches = "'Disable fullscreen ambient mode' 'GmsCore support' 'Open links externally' 'Disable zoom haptics'"
-patcher-args = "-OdarkThemeBackgroundColor=@android:color/system_neutral1_900 -OlightThemeBackgroundColor=@android:color/system_neutral1_50 "
+# Config for ReVanced
 
-[Infinity]
+parallel-jobs = 1                     # amount of cores to use for parallel patching, if not set $(nproc) is used
+compression-level = 9                 # module zip compression level
+remove-rv-integrations-checks = true  # remove checks from the revanced integrations
+
+patches-source = "revanced/revanced-patches" # where to fetch patches bundle from. default: "revanced/revanced-patches"
+cli-source = "j-hc/revanced-cli"             # where to fetch cli from. default: "j-hc/revanced-cli"
+rv-brand = "ReVanced Extended"               # rebrand from 'ReVanced' to something different. default: "ReVanced"
+
+patches-version = "v2.160.0" # 'latest', 'dev', or a version number. default: "latest"
+cli-version = "v5.0.0"       # 'latest', 'dev', or a version number. default: "latest"
+
+[com.google.android.youtube]
+app-name = "YouTube"
+enabled = true
+version = "auto"
+build-mode = "module"
+excluded-patches = """\
+  'Alternative thumbnails' \
+  'Announcements' \
+  'Bypass image region restrictions' \
+  'Change start page' \
+  'Custom player overlay opacity' \
+  'Disable auto captions' \
+  'Disable player popup panels' \
+  'Disable suggested video end screen' \
+  'Downloads' \
+  'Hide ads' \
+  'Hide endscreen cards' \
+  'Hide info cards' \
+  'Hide layout components' \
+  'Hide player flyout menu items' \
+  'Hide player overlay buttons' \
+  'Hide video action buttons' \
+  'Miniplayer' \
+  'Navigation buttons' \
+  'Playback speed' \
+  'Remove background playback restrictions' \
+  'Remove tracking query parameter' \
+  'Remove viewer discretion dialog' \
+  'Return YouTube Dislike' \
+  'Seekbar tapping' \
+  'Seekbar thumbnails' \
+  'SponsorBlock' \
+  'Spoof video streams' \
+  'Swipe controls' \
+  'Theme' \
+  'Video ads' \
+  'Wide searchbar' \
+"""
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
+arch = "arm64-v8a"
+
+[com.google.android.apps.photos]
+app-name = "Google Photos"
+enabled = true
+version = "auto"
+build-mode = "module"
+excluded-patches = """\
+  'Spoof features' \
+"""
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/google-photos"
+arch = "arm64-v8a"
+
+[ml.docilealligator.infinityforreddit]
+app-name = "Infinity for Reddit"
+enabled = true
+version = "auto"
+build-mode = "module"
+excluded-patches = """\
+  'Spoof client' \
+  'Unlock subscription' \
+"""
 apkmirror-dlurl = "https://www.apkmirror.com/apk/docile-alligator/infinity-for-reddit"
 arch = "arm64-v8a"
-build-mode = "module"
-patcher-args = "-Oclient-id=9-0tamLtjbNmW6BbLUILlA "
-
